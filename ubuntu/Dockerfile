@@ -9,15 +9,6 @@ RUN mkdir -p /var/run/sshd
 RUN mkdir /root/.ssh
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 
-# locale
-RUN echo "zh_CN.UTF-8 UTF-8" > /etc/locale.gen && \
-    ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
-    locale-gen && \
-    dpkg-reconfigure -f noninteractive locales tzdata && \
-    /usr/sbin/update-locale LANG=zh_CN.UTF-8
-ENV LANG=zh_CN.UTF-8
-
-
 # declarations
 EXPOSE 22
 VOLUME /root

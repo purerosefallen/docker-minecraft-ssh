@@ -1,6 +1,5 @@
 FROM node:stretch
 
-RUN ssh-keygen -A
 RUN sed -i 's/deb.debian.org/ftp.cn.debian.org/g' /etc/apt/sources.list
 RUN apt update
 RUN apt install -y openssh-server locales curl git vim sudo tar gzip zip unzip net-tools build-essential premake4 libevent-dev libsqlite3-dev liblua5.3-dev mono-complete sqlite3 p7zip-full redis-server
@@ -12,6 +11,7 @@ RUN npm install pm2 coffeescript@1.12.7 -g
 #RUN apt update
 
 # ssh
+RUN ssh-keygen -A
 RUN mkdir -p /var/run/sshd
 RUN mkdir /root/.ssh
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
