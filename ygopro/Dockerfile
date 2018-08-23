@@ -1,9 +1,15 @@
-FROM java
+FROM node:stretch
 
 RUN ssh-keygen -A
 RUN sed -i 's/deb.debian.org/ftp.cn.debian.org/g' /etc/apt/sources.list
 RUN apt update
-RUN apt install -y openssh-server locales curl git vim sudo tar zip unzip cron build-essential p7zip-full screen byobu
+RUN apt install -y openssh-server locales curl git vim sudo tar zip unzip build-essential premake4 libevent-dev libsqlite3-dev liblua5.3-dev mono-complete sqlite3 p7zip-full redis-server
+RUN ln -s /usr/lib/x86_64-linux-gnu/liblua5.3.so /usr/lib/liblua.so
+RUN npm install pm2 coffeescript@1.12.7 -g
+
+# 系统源
+#RUN sed -i 's/deb.debian.org/ftp.cn.debian.org/g' /etc/apt/sources.list
+#RUN apt update
 
 # ssh
 RUN mkdir -p /var/run/sshd
@@ -20,12 +26,11 @@ ENV LANG=zh_CN.UTF-8
 
 # declarations
 EXPOSE 22
-EXPOSE 25565
+EXPOSE 7911
+EXPOSE 7922
 VOLUME /root
 
 WORKDIR /root
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 CMD [ "/entrypoint.sh" ]
-
-# no minecraft server files are provided.
