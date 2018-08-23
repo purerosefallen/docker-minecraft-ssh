@@ -1,6 +1,5 @@
 FROM centos
 
-RUN ssh-keygen -A
 RUN yum install -y epel-release yum-utils openssh-server curl wget git vim sudo tar zip unzip gcc gcc-c++ sqlite-devel readline-devel openssl-devel screen byobu crontabs
 
 # ssh
