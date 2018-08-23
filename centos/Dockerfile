@@ -1,5 +1,6 @@
 FROM centos
 
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo
 RUN yum install -y epel-release yum-utils openssh-server curl wget git vim sudo tar gzip zip unzip net-tools gcc gcc-c++ sqlite-devel readline-devel openssl-devel screen byobu crontabs
 
 # ssh
