@@ -1,6 +1,6 @@
 FROM centos
 
-RUN yum install -y epel-release yum-utils openssh-server curl wget git vim sudo tar gzip zip unzip gcc gcc-c++ sqlite-devel readline-devel openssl-devel screen byobu crontabs
+RUN yum install -y epel-release yum-utils openssh-server curl wget git vim sudo tar gzip zip unzip net-tools gcc gcc-c++ sqlite-devel readline-devel openssl-devel screen byobu crontabs
 
 # ssh
 RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key
