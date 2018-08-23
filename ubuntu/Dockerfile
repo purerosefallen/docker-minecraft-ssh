@@ -1,6 +1,7 @@
 FROM ubuntu
 
 RUN apt update
+RUN unminimize
 RUN apt install -y openssh-server locales curl git vim sudo tar gzip zip unzip cron net-tools build-essential p7zip-full screen byobu
 
 # ssh
