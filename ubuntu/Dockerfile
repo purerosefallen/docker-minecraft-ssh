@@ -4,9 +4,7 @@ RUN apt update
 RUN apt install -y openssh-server locales curl git vim sudo tar gzip zip unzip cron net-tools build-essential p7zip-full screen byobu
 
 # ssh
-RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key
-RUN ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key
-
+RUN ssh-keygen -A
 RUN mkdir -p /var/run/sshd
 RUN mkdir /root/.ssh
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
