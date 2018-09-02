@@ -1,7 +1,7 @@
 FROM ubuntu
 
-RUN apt update
 RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+RUN apt update
 RUN bash -c "yes | unminimize"
 RUN apt install -y openssh-server locales curl git vim sudo tar gzip zip unzip cron net-tools build-essential p7zip-full screen byobu
 
