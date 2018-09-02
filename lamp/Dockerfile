@@ -12,7 +12,7 @@ RUN mkdir /root/.ssh
 RUN echo 'PermitRootLogin yes' >> /etc/ssh/sshd_config
 
 # declarations
-EXPOSE 22
+EXPOSE 22 80 3306
 VOLUME /root
 
 WORKDIR /root
